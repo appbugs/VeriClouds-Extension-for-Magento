@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Preksh
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * It is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to akash@preksh.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this module to newer
+ * versions in the future. 
+ *
+ * @category    Preksh
+ * @package     SecureAccounts_ManageAccounts
+ * @copyright  ©Copyright 2015-16. Preksh Innovations Pvt. Ltd.(www.preksh.com) All Rights Reserved.
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+/**
+ *
+ * @category    Preksh
+ * @package     SecureAccounts_ManageAccounts
+ * @author      Priyanka <priyanka@preksh.com>
+ * @date        4th April, 2016
+ */
+--> 
+<config>
+    <modules>
+        <SecureAccounts_ManageAccounts>
+            <version>1.0.0</version>
+        </SecureAccounts_ManageAccounts>
+    </modules>
+    <frontend>
+        <routers>
+            <manageaccounts>
+                <use>standard</use>
+                <args>
+                    <module>SecureAccounts_ManageAccounts</module>
+                    <frontName>manageaccounts</frontName>
+                </args>
+            </manageaccounts>
+        </routers>
+        <layout>
+            <updates>
+                <manageaccounts>
+                    <file>secureaccounts/manageaccounts/manageaccounts.xml</file>
+                </manageaccounts>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <events>
+            
+            <adminhtml_widget_container_html_before>
+                <observers>
+                    <add_button_test>
+                        <class>SecureAccounts_ManageAccounts_Model_Observer</class>
+                        <method>addButtonTest</method>
+                    </add_button_test>
+                </observers>
+            </adminhtml_widget_container_html_before>
+            
+        </events>
+        <blocks>
+            <manageaccounts>
+                <class>SecureAccounts_ManageAccounts_Block</class>
+            </manageaccounts>
+            
+            <adminhtml>
+                <rewrite>
+                    <customer_grid>SecureAccounts_ManageAccounts_Block_Customer_Grid</customer_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <resources>
+            <secureaccounts_manageaccounts_setup>
+                <setup>
+                    <module>SecureAccounts_ManageAccounts</module>
+                </setup>
+            </secureaccounts_manageaccounts_setup>
+        </resources>
+        <models>
+            <secureaccounts_manageaccounts>
+                <class>SecureAccounts_ManageAccounts_Model</class>
+                <resourceModel>secureaccounts_manageaccounts_resource</resourceModel>
+            </secureaccounts_manageaccounts>
+            <secureaccounts_manageaccounts_resource>
+                <class>SecureAccounts_ManageAccounts_Model_Resource</class>
+                <entities>
+                    <compromisedusers>
+                        <table>secureaccounts_compromisedusers</table>
+                    </compromisedusers>                   
+                </entities>
+            </secureaccounts_manageaccounts_resource>
+        </models>
+        <helpers>
+            <manageaccounts>
+                <class>SecureAccounts_ManageAccounts_Helper</class>
+            </manageaccounts>
+        </helpers>
+	
+        <template>
+            <email>
+                <!--Give the template a uniqiue name, you'll need to refer to this later when sending the email-->
+                <password_compromise_reset_template>
+                    <label>Password Reset</label>
+                    <file>secureaccounts/manageaccounts/password_compromise_reset_template.html</file>
+                    <type>html</type>
+                </password_compromise_reset_template>
+            </email>
+        </template>
+    </global>
+    <admin>
+        <routers>
+            <manageaccounts>
+                <use>admin</use>
+                <args>
+                    <module>SecureAccounts_ManageAccounts</module>
+                    <frontName>manageaccount</frontName>
+                </args>
+            </manageaccounts>
+        </routers>
+    </admin>
+    <default>
+        <manageaccounts>
+            <general>
+                <appbaseurl>https://www.vericlouds.com/private_search/api.php?</appbaseurl>
+                <noofcustomers>100</noofcustomers>
+                <noofdays>15</noofdays>
+            </general>
+            
+        </manageaccounts>
+    </default>
+</config>

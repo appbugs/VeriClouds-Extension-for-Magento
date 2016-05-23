@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <manageaccounts_ajax_resetpasswordpage>  
+        <reference name="head">
+            <action method="addJs" ifconfig="manageaccounts/general/active">
+                <script>secureaccounts/manageaccounts/resetpassword.js</script>
+            </action>
+            <action method="addJs" ifconfig="manageaccounts/general/active">
+                <script>secureaccounts/manageaccounts/jquery.validate.js</script>
+            </action>
+            <action method="addCss" ifconfig="manageaccounts/general/active">
+                <name>secureaccounts/manageaccounts/css/custom_styles.css</name>
+            </action> 
+            <action method="addCss" ifconfig="manageaccounts/general/active">
+                <name>secureaccounts/manageaccounts/css/bootstrap.min.css</name>
+            </action> 
+        </reference>     
+        <reference name="content">  
+            <remove name="right.poll"/>
+            <remove name="left.newsletter"/>
+            <remove name="right.permanent.callout"/>                       
+            <block type="core/template" as="resetpwdemail" name="resetpwdemail">
+                <action method="setTemplate" ifconfig="manageaccounts/general/active">
+                    <template>secureaccounts/manageaccounts/resetpassword.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </manageaccounts_ajax_resetpasswordpage>  
+    
+    <customer_account_login>
+        <reference name="head">
+            <action method="addJs" ifconfig="manageaccounts/general/active">
+                <script>secureaccounts/manageaccounts/login.js</script>
+            </action>
+            
+        </reference>   
+        <reference name="content">
+            <block type="core/template" as="login-url" name="login-url">
+                <action method="setTemplate" after="customer_form_login" ifconfig="manageaccounts/general/active">
+                    <template>secureaccounts/manageaccounts/login_url.phtml</template>
+                </action>
+            </block>
+        </reference>  
+    </customer_account_login> 
+</layout>

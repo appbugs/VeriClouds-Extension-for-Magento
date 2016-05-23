@@ -1,0 +1,14 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30 Mar, 2016, 10:24:32 AM
+    Author     : priyanka
+*/
+
+input[type="email"], input[type="search"], input[type="number"], input[type="password"], input[type="tel"], input[type="text"] {
+    max-width: 100%;
+    width: 100% !important;
+}
