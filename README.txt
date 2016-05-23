@@ -1,6 +1,6 @@
 Install and config
 
-1.Install the extension from Magento Connect https://www.magentocommerce.com/magento-connect/secure-accounts.html. 
+1.Install the extension from Magento Connect https://www.magentocommerce.com/magento-connect/secure-accounts.html. Do not install the code from this GitHub as the code here is in development mode and thus stable version.
 2.After installation is done, log into the admin portal of your Magento-based webiste. Go to System->Configuration. Then click on "Secure Login Settings" under "SECURE ACCOUNT" in left panel. 
 3.Put the activation code in Token Key field and Click "Save Config" to save the configurations. To get a valid activation code, sign up from VeriClouds: https://vericlouds.com/wp/compromised-accounts-detection/
 
